@@ -2,7 +2,6 @@ import Express from 'express';
 import {
   Ordenes,
   crearOrden,
-  consultarOrden,
   editarOrden,
   eliminarOrden
 } from '../../controllers/Ordenes/controller.js';
@@ -18,19 +17,19 @@ const Callback = (res) => (err, result) => {
   }
 };
 
-rutasOrdenes.route('ordenes').get((req, res) => {
+rutasOrdenes.route('/ordenes').get((req, res) => {
   Ordenes(Callback(res));
 });
 
-rutasOrdenes.route('ordenes/nuevas').post((req, res) => {
+rutasOrdenes.route('/ordenes/nuevas').post((req, res) => {
   crearOrden(req.body, Callback(res));
 });
 
-rutasOrdenes.route('ordenes/Editar/:id').patch((req, res) => {
+rutasOrdenes.route('/ordenes/Editar/:id').patch((req, res) => {
   editarOrden(req.params.id, req.body, Callback(res));
 });
 
-rutasOrdenes.route('ordenes/Eliminar/:id').delete((req, res) => {
+rutasOrdenes.route('/ordenes/Eliminar/:id').delete((req, res) => {
   eliminarOrden(req.params.id, Callback(res));
 });
 

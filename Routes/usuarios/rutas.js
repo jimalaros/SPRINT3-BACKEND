@@ -17,23 +17,23 @@ const Callback = (res) => (err, result) => {
   }
 };
 
-rutasUsuarios.route('/usuarios').get((req, res) => {
+rutasUsuarios.route('usuarios').get((req, res) => {
   Usuarios(Callback(res));
 });
 
-rutasUsuarios.route('/usuarios/nuevos').post((req, res) => {
+rutasUsuarios.route('usuarios/nuevos').post((req, res) => {
   crearUsuario(req.body, Callback(res));
 });
 
-rutasUsuarios.route('/usuarios/:id').get((req, res) => {
+rutasUsuarios.route('usuarios/:id').get((req, res) => {
   consultarUsuario(req.params.id, Callback(res));
 });
 
-rutasUsuarios.route('/usuarios/Eliminar/:id').patch((req, res) => {
+rutasUsuarios.route('usuarios/Eliminar/:id').patch((req, res) => {
   editarUsuario(req.params.id, req.body, Callback(res));
 });
 
-rutasUsuarios.route('/usuarios/:id').delete((req, res) => {
+rutasUsuarios.route('usuarios/:id').delete((req, res) => {
   eliminarUsuario(req.params.id, Callback(res));
 });
 

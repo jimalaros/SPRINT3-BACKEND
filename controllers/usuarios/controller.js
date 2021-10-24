@@ -17,7 +17,7 @@ const consultarUsuario = async (id, callback) => {
   await baseDeDatos.collection('usuarios').findOne({ _id: new ObjectId(id) }, callback);
 };
 
-/**const consultarOCrearUsuario = async (req, callback) => {
+const consultarOCrearUsuario = async (req, callback) => {
   // 6.1. obtener los datos del usuario desde el token
   const token = req.headers.authorization.split('Bearer ')[1];
   const user = jwt_decode(token)['http://localhost/userData'];
@@ -25,7 +25,7 @@ const consultarUsuario = async (id, callback) => {
 
   // 6.2. con el correo del usuario o con el id de auth0, verificar si el usuario ya esta en la bd o no
   const baseDeDatos = getDB();
-  await baseDeDatos.collection('usuario').findOne({ email: user.email }, async (err, response) => {
+  await baseDeDatos.collection('usuarios').findOne({ email: user.correo }, async (err, response) => {
     console.log('response consulta bd', response);
     if (response) {
       // 7.1. si el usuario ya esta en la BD, devuelve la info del usuario
@@ -39,7 +39,7 @@ const consultarUsuario = async (id, callback) => {
       await crearUsuario(user, (err, respuesta) => callback(err, user));
     }
   });
-};**/
+};
 
 const editarUsuario = async (id, edicion, callback) => {
   const filtroUsuario = { _id: new ObjectId(id) };

@@ -28,7 +28,7 @@ rutasUsuarios.route('/usuarios/nuevos').post((req, res) => {
 
 rutasUsuarios.route('/usuarios/info').get((req, res) => {
   console.log('alguien hizo get en la ruta /info');
-  consultarOCrearUsuario(req, genercCallback(res));
+  consultarOCrearUsuario(req, Callback(res));
 });
 
 rutasUsuarios.route('/usuarios/:id').get((req, res) => {

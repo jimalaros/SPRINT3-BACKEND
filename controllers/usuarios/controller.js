@@ -25,7 +25,7 @@ const consultarOCrearUsuario = async (req, callback) => {
 
   // 6.2. con el correo del usuario o con el id de auth0, verificar si el usuario ya esta en la bd o no
   const baseDeDatos = getDB();
-  await baseDeDatos.collection('usuarios').findOne({ email: user.correo }, async (err, response) => {
+  await baseDeDatos.collection('usuarios').findOne({ correo: user.correo }, async (err, response) => {
     console.log('response consulta bd', response);
     if (response) {
       // 7.1. si el usuario ya esta en la BD, devuelve la info del usuario

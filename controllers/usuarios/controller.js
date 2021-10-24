@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { getDB } from '../../db/db.js';
-//import jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 
 const Usuarios = async (callback) => {
   const baseDeDatos = getDB();

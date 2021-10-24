@@ -3,13 +3,15 @@ import jwt_decode from 'jwt-decode';
 
 const autorizacionEstadoUsuario = async (req, res, next) => {
   // paso 1: obtener el usuario desde el token
-  const token = req.headers.authorization.split('Bearer ')[1];
+  const bearerHeader = req.headers['authorization'];
+  const bearer = bearerHeader.split(" ");
+  const token = bearer[1];
   const user = jwt_decode(token)['http://localhost/userData'];
   console.log(user);
 
   // paso 2: consultar el usuario en la BD
   const baseDeDatos = getDB();
-  await baseDeDatos.collection('usuarios').findOne({ email: user.email }, async (err, response) => {
+  await baseDeDatos.collection('usuarios').findOne({ correo: user.correo }, async (err, response) => {
     if (response) {
       console.log(response);
       // paso 3: verificar el estado del usuario.

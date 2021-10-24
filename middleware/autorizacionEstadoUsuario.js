@@ -14,7 +14,7 @@ const autorizacionEstadoUsuario = async (req, res, next) => {
   await baseDeDatos.collection('usuarios').findOne({ correo: user.correo }, async (err, response) => {
     if (response) {
       console.log(response);
-        next();
+      next();
     } else {
       res.sendStatus(401);
     }

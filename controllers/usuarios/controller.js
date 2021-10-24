@@ -62,6 +62,7 @@ export {
   Usuarios,
   crearUsuario,
   consultarUsuario,
+  consultarOCrearUsuario,
   editarUsuario,
   eliminarUsuario
 };

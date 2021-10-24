@@ -2,6 +2,7 @@ import Express from 'express';
 import {
   Usuarios,
   crearUsuario,
+  consultarOCrearUsuario,
   editarUsuario,
   eliminarUsuario,
   consultarUsuario
